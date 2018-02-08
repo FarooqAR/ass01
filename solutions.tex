@@ -1,0 +1,223 @@
+%CS-113 S18 HW-1 Solutions
+%Released: 8-Feb-2018
+%Authors: Abdullah Zafar, Aiman Ahmed Moin, Saman Gaziani, Osama Yousuf and Muhammad Imtiaz
+
+
+\documentclass[addpoints]{exam}
+\usepackage{amsfonts}
+
+% Header and footer.
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\runningheader{CS 113 Discrete Mathematics}{Homework I}{Spring 2018}
+\runningfooter{}{Page \thepage\ of \numpages}{}
+\firstpageheader{}{}{}
+
+% \qformat{{\large\bf \thequestion. \thequestiontitle}\hfill[\totalpoints\ points]}
+\boxedpoints
+\printanswers
+
+\title{Habib University\\CS-113 Discrete Mathematics\\Spring 2018\\HW 1 Solutions}
+  % replace with your ID, e.g. oy02945
+\date{Homework 1}
+\date{Released{:} 8th February, 2018}
+\begin{document}
+\maketitle
+
+\begin{questions}
+
+
+
+\question
+
+%Type instructions for short questions here
+
+\begin{parts}
+
+  
+  \part[5] You are given four cards, each of which has a number on one side and a letter on another. You place them on a table in front of you and the four cards read {\it B 5 2 J}. Which cards would you have to turn over, to test the following rule? Explain your choice.
+  \begin{center}
+    If there is a 5 on one side, there is a J on the other side.
+  \end{center}
+
+  \begin{solution}
+      Flip the cards labelled ‘B’ and ‘5 to check falsity. The implication holds false when the antecedent is true but consequent is false and is true otherwise. The antecedent is/can hold true for cards labelled ‘B’, ‘5’ and ‘J’. Of these, the consequent is/can be false for ‘B’ and ‘5’. Therefore, we must flip the cards ‘B’ and ‘5’.
+  \end{solution}
+  
+  \part[5] Express the following statement with a propositional function $P(x)$, where $x$ $\varepsilon \{1, 2, 3, 4, 5\}$, without using quantifiers, instead using only logical operators $\neg$, $\vee$ , and $\wedge$. 
+  \begin{center}
+    $\exists x (\neg P(x)) \wedge \forall x (( x \neq 2) \rightarrow P(x))$
+  \end{center}
+  
+  \begin{solution}
+   Possible solutions:
+   \begin{subparts}
+   \subpart $(\neg P(1) \vee \neg P(2) \vee \neg P(3) \vee \neg P(4) \vee \neg P(5)) \wedge ((P(1)) \wedge (P(3))\wedge (P(4))\wedge (P(5))))$
+    	 
+    	 \subpart $\neg (P(1) \wedge P(2) \wedge P(3) \wedge P(4) \wedge P(5)) \wedge ((P(1)) \wedge (P(3))\wedge (P(4))\wedge (P(5))))$
+    	 
+    	 \subpart $P(1) \wedge \neg P(2) \wedge P(3)\wedge P(4)\wedge P(5)$
+  \end{subparts}
+  \end{solution}
+
+  \part[5] Let $F(x, y)$ be the statement {\it x can fool y}, where the domain consists of all people in the world. Use quantifiers to express the following statement:
+  \begin{center}
+    There are exactly two people whom everybody can fool.
+  \end{center}
+  \begin{solution}
+ \begin{subparts}
+   \subpart $ \exists x, y\; \forall p, z (F(p,x) \wedge F(p,y) \wedge x \not = y \wedge F(p,z) \rightarrow (x = z \vee y = z))$ 
+    
+  \subpart 	$ \exists x, y\; \forall p (F(p,x) \wedge F(p,y) \wedge \forall z (F(p,z) \rightarrow ((x = z \vee y = z ) \wedge x \not = y)))$
+  
+   \subpart $ \exists x, y\; \forall p (F(p,x) \wedge F(p,y) \wedge x \not = y \wedge \neg \exists z (F(p,z) \rightarrow (x \not = z \wedge y \not = z)))$ 
+  \end{subparts} 
+
+  \end{solution}
+
+\end{parts}
+
+\question[10] Show that $(p\vee q) \wedge (\neg p \vee r)\rightarrow (q \vee r)$ is a tautology, without use a truth table. Show your reasoning.
+
+  \begin{solution}
+    \begin{center}
+     $\qquad(p\vee q) \wedge (\neg p \vee r)\rightarrow (q \vee r)$\\$\equiv\neg [(p\vee q) \wedge (\neg p \vee r)]\vee (q \vee r)$ \hfill{by disjunctive form}\\$\equiv[\neg(p\vee q) \vee \neg(\neg p \vee r)]\vee (q \vee r)$ \hfill {by de Morgan's law}\\$\equiv[(\neg p\wedge\neg q) \vee (p \wedge\neg r)]\vee (q \vee r)$\hfill {by de Morgan's law}\\$\equiv[(\neg p\wedge\neg q)\vee q] \vee [(p \wedge\neg r)\vee r]$\hfill{by commutative and associative law}\\$\equiv[(\neg p\vee q)\wedge (\neg q\vee q)] \vee [(p\vee r)\wedge (\neg r\vee r)]$\hfill{by distributive law}\\$\equiv[(\neg p\vee q)\wedge {\bf{T}}] \vee [(p\vee r)\wedge {\bf{T}}]$\hfill{by negation law}\\$\equiv(\neg p\vee q) \vee (p\vee r)$\hfill{by identity law}\\$\equiv(\neg p\vee p) \vee (q\vee r)$\hfill{by commutative and associative law}\\$\equiv{\bf{T}}\vee (q\vee r)$\hfill{by negation and law}\\$\equiv{\bf{T}}$\hfill by domination law\\Q.E.D.\\
+    \end{center}
+  \end{solution}
+
+\question[20] Suppose $A, B, C$ are sets. And $C \neq \emptyset$. Show that if $A \times C = B \times C$, then $A = B$.
+
+  \begin{solution}
+  Possible solutions:
+    \begin{subparts}
+    \subpart Consider the contrapositive: $A \not = B \rightarrow A \times C \not = B \times C$.
+
+Consider sets $A, B$ such that $A \not= B$. Then there exists some $x \in A \cap \bar B$ or its mirror $y \in \bar A \cap B$. Without loss of generality, suppose that x exists. Then $(x,-) \in (A \cap \bar B) \times C$ exists. If $(x,-) \in (A \cap \bar B) \times C$, then $(x,-) \in A \times C$ and $(x,-) \not \in B \times C$. Since $A \times C$ and $B \times C$ differ over $x$, $A \times C \not = B \times C$. Q.E.D.
+
+\subpart We set up a correspondence between sets $A \times C$ and $B \times C$ such that $\forall p \in A \times C, q \in B \times C$ (p maps to q iff $p = q$). We know this correspondence is injective because there is no p which does not correspond to a twin member q. This result follows directly from the assumption that $A \times C = B \times C$. Furthermore, this correspondence is surjective because it is injective and $|A \times C| = |B \times C|$. 
+
+The one-to-one correspondence $\forall p,q$ (p maps to q iff $p = q$) could be elaborated as $\forall a,b$ ($(a, -)$ maps to $(b, -)$ iff $(a,-) = (b,-)$), where $a \in A, b \in B$. Since $(a, -) = (b, -)$ for all elements in the respective sets (as per the definition of the Cartesian Product), $a = b$ for all a and b. Therefore $A = B$. Q.E.D.
+
+
+
+    \end{subparts}
+  \end{solution}
+\question For $S$ in the domain of a function $f^*$, let $f^*(S) = \{ f(x) : x\in S \}$ where function $f(x)$ is in the domain of $x\in S$. Let $C$ and $D$ be subsets of the domain of $f^*$.
+  \begin{parts}
+    \part[20] Show that $f^* (C \cap D) \subseteq f^* (C) \cap f^* (D)$.
+  \begin{solution}
+    Possible solutions:
+    \begin{subparts}
+    \subpart Suppose $y \in f^*(C \cap D)$. Then $y = f(x)$ for some $x \in C \cap D$. This implies that $x \in C$ and $x \in D$, therefore $y \in f^*(C)$ and $y \in f^*(D)$. By definition of intersection, $y \in f^*(C) \cap f^*(D)$. Therefore $f^*(C \cap D) \subseteq f^*(C) \cap f^*(D)$. Q.E.D.
+    
+    \subpart We know that $f^*(C \cap D) \subseteq f^*(C)$. Suppose that $f^*(C \cap D) \not \subseteq f^*(C)$, then there must exist an element in $f^*(C \cap D)$ that is not in $f^*(C)$. Call that element $f(x)$, where $x$ is not a member of C but $x \in C \cap D$. This is of course a contradiction, therefore $f^*(C \cap D) \subseteq f^*(C)$. A symmetric argument can be used to say that since $C \cap D \subseteq D$, $f^*(C \cap D) \subseteq f^*(D)$.
+    
+    Since  $f^*(C \cap D) \subseteq f^*(C)$ and $f^*(C \cap D) \subseteq f^*(D)$, then by definition of intersection: $f*(C \cap D) \subseteq f^*(C) \cap f^*(D)$. Q.E.D.
+    \end{subparts}
+  \end{solution}
+    \part[5] Give an example where equality does not hold in the previous part.
+  \begin{solution}
+    Consider the surjective function $f : \{1,2\} \rightarrow \{3\}$. Let $C = \{1\}$ and $D = \{2\}$.
+
+    $f(C \cap D) = f(\phi) = \phi \not=f ( C) \cap f (D) = \{3\}$
+  \end{solution}
+\end{parts}
+
+\question
+    Five guests were invited to an exclusive party at Dr. Harvey's mansion. However during the long dark night, the scandalous Dr. Harvey was found dead in his office. The trouble is, every member of the party went to his office, each at a different time, with a different motive, and a different weapon. There was a fingerprint, a footprint, a blood drop, a note and a strand of hair found at the murder site. Forensics revealed that the suspect who entered the room at 10.30 pm did it. From their statements below, can you work out who killed Dr. Harvey? 
+
+Colonel Woody - ``I never left a footprint because a woman did. I entered the room before the person who took in the poison. I must say though, she was in there for a quarter of an hour before someone else went in."
+
+Lady Rose - ``Okay I admit it! I took in the revolver, even though my motive wasn't revenge. A man entered the room after me and his motive was either rage or blackmail. They all took their sweet time about it, but no man took more than 40 minutes."
+
+Sir Tarantino - ``I did leave a fingerprint, but that doesn't explain why Professor Selma lost a hair, does it? Oh yes, the person who entered seventy minutes before me took in the lead pipe. Then there was the man with the dagger!"
+
+Reverend Spacey - ``I entered after a woman, who did not take in a rope, because the last person to visit him did. I was in there for over 35 minutes, confronting Dr. Harvey over my motive, which may I say wasn't greed or blackmail."
+
+Professor Selma - ``Yes, you caught me! My motive was jealousy, but it wasn't as bad as that man's blackmail motive, who entered at five minutes past ten. I entered before another man who left the incriminating clue of the blood drop."
+
+\begin{parts}
+  \part[20] For each suspect, write their testimony in the form of several well-defined propositions, using quantifiers wherever possible, in addition to negations, disjunctions and conjunctions. You may use the following statements to construct your propositions:
+
+  \begin{tabular}{l@{ : }l}
+    Clue(x, y) & suspect x left clue y \\
+    Weapon(x, y) & suspect x used weapon y \\
+    Motive(x, y) & suspect x had motive y \\
+    Order(x,y,z) & suspect x entered y minutes before suspect z
+  \end{tabular}
+  \begin{solution}
+   Let,\\
+  \begin{tabular}{l@{ : }l}
+    A & $\{Woody, Rose, Tarantino, Spacey,Selma\}$ \\
+    M & $\{Woody, Tarantino, Spacey\}$ \\
+    F & $\{Rose, Selma\}$ \\
+  \end{tabular}
+
+\underline{Colonel Woody:}
+
+$\neg Clue(Woody,Footprint) $
+
+$\exists x \in F (Clue(x,Footprint))$
+
+$\exists x\in M,y\in \mathbb{N},z\in A - \{Woody\} (  Order(Woody, y, x )\wedge Weapon (x,Poison) \wedge Order(x,15,z) \wedge x \neq z)$ \\
+
+
+\underline{Lady Rose:}
+
+$Weapon(Rose,Revolver) \wedge \neg Motive (Rose, Revenge)$
+
+$\exists x \in M, \exists y \in A - \{Rose\} ((Motive(x,Revenge) \vee Motive(x,Blackmail)) \wedge Order(Rose,y,x))$ 
+
+$\forall x \in M, y \in A, \exists t \in \mathbb{N} (Order(x,t,y) \wedge t \leq 40)$\\
+
+\underline{Sir Tarantino:}
+
+$Clue(Tarantino,Fingerprint)$
+
+$Clue(Selma,Hair)$
+
+$\exists x \in A - \{Tarantino\} ( Order(x,70,Tarantino) \wedge Weapon(x,Lead Pipe))$
+
+$\exists x \in M (Weapon(x,Dagger))$\\
+
+\underline{Reverend Spacey:}
+
+$\exists x \in F, \exists y \in \mathbb{N} (  \neg G(x) \wedge Order(x,y,Spacey) \wedge \neg Weapon(x,Rope))$
+
+$\exists x \in A, \forall y \in \mathbb{N}, z \in A (\neg Order(x,y,z) \wedge Weapon(x,Rope)) $
+
+$\exists x \in A-{Spacey},y \in \mathbb{N} (Order(Spacey,y,x) \wedge y>35)$
+
+$\neg Motive(Spacey,Greed) \wedge \neg Motive(Spacey,Blackmail))$\\
+
+\underline{Professor Selma:}
+
+$Motive(Selma,Jealousy)$
+
+$\exists x \in M(Motive(x,Blackmail))$
+
+$\exists x \in M, exists y \in \mathbb{N}(Order(Selma,x,y) \wedge Clue (y,Blooddrop))$
+  \end{solution}
+
+  \part[10] Use your propositions from the previous part to fill in the following table:
+
+  
+    \begin{tabular}{|l|p{.15\textwidth}|p{.15\textwidth}|p{.15\textwidth}|p{.15\textwidth}|p{.15\textwidth}|}
+    \hline
+ & Weapon & Motive & Clue & Time \\\hline\hline
+Woody	&Dagger &Blackmail &Note & 10:05\\\hline
+Rose	& Revolver & Greed& Footprint & 11:25 \\\hline
+Tarantino  &Rope &Rage &Fingerprint & 11:55\\\hline
+Spacey	&Lead pipe & Revenge& Blood drop& 10:45 \\\hline
+Selma	& Poison & Jealousy& Hair&10:30 \\\hline
+\end{tabular}
+
+
+
+  
+\end{parts}
+
+\end{questions}
+
+\end{document}
